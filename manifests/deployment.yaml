@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: noami-nobodu4788-next-js-gitlab-container
-          image: pipejet/noami-nobodu4788-next-js-gitlab:1
+          image: pipejet/noami-nobodu4788-next-js-gitlab:2
           ports:
             - containerPort: 3000
