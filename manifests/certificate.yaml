@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: noami-nobodu4788-next-js-gitlab-certificate
+  namespace: noami-nobodu4788-next-js-gitlab
+spec:
+  secretName: noami-nobodu4788-next-js-gitlab-secret-tls
+  commonName: noami-nobodu4788-next-js-gitlab.assessify.org
+  dnsNames:
+  - noami-nobodu4788-next-js-gitlab.assessify.org
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
