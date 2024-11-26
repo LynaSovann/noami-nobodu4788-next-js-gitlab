@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: noami-nobodu4788-next-js-gitlab-https-ingress
+  namespace: noami-nobodu4788-next-js-gitlab
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - noami-nobodu4788-next-js-gitlab.assessify.org
+      secretName: noami-nobodu4788-next-js-gitlab-secret-tls
+  rules:
+    - host: noami-nobodu4788-next-js-gitlab.assessify.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: noami-nobodu4788-next-js-gitlab-service
+                port:
+                  number: 8236
