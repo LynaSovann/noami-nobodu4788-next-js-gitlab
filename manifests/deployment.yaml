@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: noami-nobodu4788-next-js-gitlab-deployment
+  labels:
+    app: noami-nobodu4788-next-js-gitlab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: noami-nobodu4788-next-js-gitlab
+  template:
+    metadata:
+      labels:
+        app: noami-nobodu4788-next-js-gitlab
+    spec:
+      containers:
+        - name: noami-nobodu4788-next-js-gitlab-container
+          image: pipejet/noami-nobodu4788-next-js-gitlab:0
+          ports:
+            - containerPort: 3000
